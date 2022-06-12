@@ -18,7 +18,7 @@ RUN GOOS=linux go build -installsuffix cgo -o httpserver httpserver.go
 
 FROM GOLANG
 
-COPY --from=build /root/httpserver /root/httpserver
+COPY --from=GOLANG /root/httpserver /root/httpserver
 EXPOSE 80
 WORKDIR /root/httpserver/
 ENTRYPOINT ["./httpserver"]
