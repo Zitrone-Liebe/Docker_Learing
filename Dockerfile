@@ -16,7 +16,7 @@ ENV GO111MODULE=on
 ENV GOPROXY=https://goproxy.cn,direct
 RUN GOOS=linux go build -installsuffix cgo -o httpserver httpserver.go
 
-FROM GOLANG
+FROM alpine:lastest
 
 COPY --from=GOLANG /root/httpserver /root/httpserver
 EXPOSE 80
